@@ -20,6 +20,10 @@ poetry new poetry-demo
 # 如果你想用与文件夹不同的方式命名你的项目，你可以传递 --name 选项：
 poetry new my-folder --name my-package
 
+# poetry全局设置为使用当前激活的env为intepreter
+poetry config virtualenvs.prefer-active-python true
+poetry config --list
+
 # install 命令从当前项目中读取 pyproject.toml 文件，解析依赖项并安装它们。
 # 如果当前目录中有 poetry.lock 文件，它将使用那里的确切版本，而不是解析它们。
 poetry install
