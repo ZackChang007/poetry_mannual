@@ -1,4 +1,21 @@
 # poetry
+## 安装pipx
+* [Pipx Installation](https://pipx.pypa.io/stable/installation/)
+~~`conda create --prefix C:\conda_envs\pipx_env python=3.9`~~
+~~`conda activate  C:\conda_envs\pipx_env`~~
+~~`conda remove --prefix C:\conda_envs\pipx_env --all`~~
+  + conda create命令的`--prefix`参数用于指定env的安装位置，
+  + `--name`参数用于命名env，两个参数不兼容
+```bash
+# 在conda base env下，或其他全局环境下，安装pipx
+# --user参数表示Python 会将包安装到用户级别的路径，而不是当前激活的虚拟环境路径中。
+# 具体来说，--user 选项会将包安装到类C:\Users\<YourUsername>\AppData\Roaming\Python\Python39\site-packages 的目录中，
+# 而不是虚拟环境的 site-packages 目录中。
+python -m pip install --user pipx
+
+# 把pipx的执行路径添加到系统环境变量中
+pipx ensurepath
+```
 ## 安装和更新poetry
 * [Installation](https://python-poetry.org/docs/#installation)
   + **Poetry 应始终安装在专用的虚拟环境中，以将其与系统的其他部分隔离开来。在任何情况下，都不应将其安装在由 Poetry 管理的项目环境中**。这可确保 Poetry 自己的依赖项不会被意外升级或卸载。（以下每种安装方法都可确保将 Poetry 安装到隔离的环境中。此外，不应激活安装了诗歌的隔离虚拟环境来运行诗歌命令。
