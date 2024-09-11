@@ -16,6 +16,40 @@ python -m pip install --user pipx
 # 把pipx的执行路径添加到系统环境变量中
 pipx ensurepath
 ```
+* 卸载pipx
+```bash
+# 关闭所有conda env，包括conda base env，进入系统原生默认环境
+pipx -h  # 方便查看当前pipx的相关路径，如C:\Users\<YourUsername>\AppData\Roaming\Python\Python39
+pip uninstall pipx
+
+# 手动删除 pipx 的虚拟环境： 删除与 pipx 相关的虚拟环境文件夹：
+C:\Users\<YourUsername>\pipx\venvs
+C:\Users\<YourUsername>\.local\bin
+```
+* 设置自定义`pipx`安装路径
+  + 设置环境变量
+    + 打开 Windows 11 的环境变量设置：
+      - 右键点击桌面的 "此电脑"，选择 属性。
+      - 点击 高级系统设置。
+      - 点击 环境变量。
+    + 添加用户变量：
+      + 点击 新建 来添加两个用户变量：
+        - PIPX_HOME: 这是 pipx 的虚拟环境存放路径。设置为不带空格的路径，例如 C:\Tools\pipx_home。
+        - PIPX_BIN_DIR: 这是 pipx 的可执行文件存放路径。设置为不带空格的路径，例如 C:\Tools\pipx_bin。
+    + 更新 PATH 环境变量：
+      - 在 "系统变量" 或 "用户变量" 下找到 Path，点击 编辑。
+      - 点击 新建，将 PIPX_BIN_DIR 路径（如 C:\Tools\pipx_bin）添加到 Path 中。
+  + 重新安装 pipx
+    + 打开 PowerShell 或命令提示符，确保环境变量已经生效。
+      + **如果未生效，一般重启电脑后即可生效**
+    ```PowerShell
+    echo $env:PIPX_HOME
+    > C:\Tools\pipx_home
+    echo $env:PIPX_BIN_DIR
+    > C:\Tools\pipx_bin
+    ``` 
+    + 重新安装 pipx: `pip install pipx`
+    + 验证路径: `pipx -h`
 ## 安装和更新poetry
 * [Installation](https://python-poetry.org/docs/#installation)
   + **Poetry 应始终安装在专用的虚拟环境中，以将其与系统的其他部分隔离开来。在任何情况下，都不应将其安装在由 Poetry 管理的项目环境中**。这可确保 Poetry 自己的依赖项不会被意外升级或卸载。（以下每种安装方法都可确保将 Poetry 安装到隔离的环境中。此外，不应激活安装了诗歌的隔离虚拟环境来运行诗歌命令。
