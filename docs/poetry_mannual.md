@@ -16,6 +16,7 @@ python -m pip install --user pipx
 # 把pipx的执行路径添加到系统环境变量中
 pipx ensurepath
 ```
+### windows11
 * 卸载pipx
 ```bash
 # 关闭所有conda env，包括conda base env，进入系统原生默认环境
@@ -50,6 +51,12 @@ C:\Users\<YourUsername>\.local\bin
     ``` 
     + 重新安装 pipx: `pip install pipx`
     + 验证路径: `pipx -h`
+### Ubuntu
+```bash
+sudo apt update
+sudo apt install pipx
+pipx ensurepath
+```
 ## 安装和更新poetry
 * [Installation](https://python-poetry.org/docs/#installation)
   + **Poetry 应始终安装在专用的虚拟环境中，以将其与系统的其他部分隔离开来。在任何情况下，都不应将其安装在由 Poetry 管理的项目环境中**。这可确保 Poetry 自己的依赖项不会被意外升级或卸载。（以下每种安装方法都可确保将 Poetry 安装到隔离的环境中。此外，不应激活安装了诗歌的隔离虚拟环境来运行诗歌命令。
